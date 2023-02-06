@@ -1,0 +1,12 @@
+body{
+background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+h1{
+    text-align: center;
+    color:whitesmoke;
+    font-size: 30pt;
+}
+#heading{
+    color: whitesmoke;
+    font-size: 40pt;
+}
