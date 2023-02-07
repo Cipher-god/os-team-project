@@ -1,0 +1,15 @@
+let want = [false, false];
+let turn = 0;
+
+function enter_region(process) {
+  let other = 1 - process;
+  want[process] = true;
+  turn = process;
+  while (want[other] && turn === process) {
+    // busy waiting
+  }
+}
+
+function leave_region(process) {
+  want[process] = false;
+}
