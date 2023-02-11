@@ -9,6 +9,7 @@ client.connect(err => {
   client.close();
 });
 // end of connection function
+//typ1-------------------------
 const text = 'Welcome to our OS Team Project Website';
 let i = 0;
 const typing = () => {
@@ -18,7 +19,7 @@ const typing = () => {
       setTimeout(typing,70);
     }
 }
-}
+//typ2--------------------------
 let i2 = 0;
 const text2 = 'Calculate Process Scheduling Algorithms';
 const typing2 = () => {
