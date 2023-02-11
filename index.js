@@ -5,7 +5,7 @@ mongodb.connect(DB).then(()=>
        {
             console.log('connection succesful!');
        }
-    ).catch(err) => console.log('no connection'));
+    ).catch((err) => console.log('no connection'));
 }
 // end of connection function
 const text = 'Welcome to our OS Team Project Website';
