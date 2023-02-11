@@ -1,12 +1,13 @@
-fuction Connection(){
-       const mongodb = require('mongodb');
-const DB = 'mongodb+srv://osproject_admim:OsProject908@cluster0.kwcneuy.mongodb.net/scheduling_algos?retryWrites=true&w=majority'
-mongodb.connect(DB).then(()=> 
-       {
-            console.log('connection succesful!');
-       }
-    ).catch((err) => console.log('no connection'));
-}
+const MongoClient = require("mongodb").MongoClient;
+const uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  if (err) throw err;
+  const db = client.db("scheduling_algos");
+  console.log("Connected to MongoDB!");
+  client.close();
+});
 // end of connection function
 const text = 'Welcome to our OS Team Project Website';
 let i = 0;
@@ -29,4 +30,4 @@ const typing2 = () => {
 }
 setTimeout(typing,0);
 setTimeout(typing2,5000);
-Connection();
+// Connection();
