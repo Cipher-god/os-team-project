@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+fuction Connection(){
+       const mongodb = require('mongodb');
 const DB = 'mongodb+srv://osproject_admim:OsProject908@cluster0.kwcneuy.mongodb.net/scheduling_algos?retryWrites=true&w=majority'
-mongoose.connect(DB).then(()=> 
+mongodb.connect(DB).then(()=> 
        {
             console.log('connection succesful!');
        }
@@ -14,6 +15,7 @@ const typing = () => {
       setTimeout(typing,70);
     }
 }
+}
 let i2 = 0;
 const text2 = 'Calculate Process Scheduling Algorithms';
 const typing2 = () => {
@@ -25,3 +27,4 @@ const typing2 = () => {
 }
 setTimeout(typing,0);
 setTimeout(typing2,5000);
+Connection();
