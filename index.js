@@ -1,3 +1,4 @@
+import { MongoClient } from "https://unpkg.com/mongodb@3.6.0/dist/mongodb.min.js";
 const MongoClient = require("mongodb").MongoClient;
 const uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
 
