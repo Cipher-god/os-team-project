@@ -2,7 +2,7 @@
   "name": "package",
   "version": "1.0.0",
   "dependencies": {
-    "mongodb": "^3.6.0"
+    "mongodb": "^5.0.1"
   },
   "scripts": {
     "start": "node index.js"
