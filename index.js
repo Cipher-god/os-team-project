@@ -1,3 +1,10 @@
+const mongoose = require('mongoose');
+const DB = 'mongodb+srv://osproject_admim:OsProject908@cluster0.kwcneuy.mongodb.net/scheduling_algos?retryWrites=true&w=majority'
+mongoose.connect(DB).then(()=> 
+       {
+            console.log('connection succesful!');
+       }
+    ).catch(err) => console.log('no connection'));
 const text = 'Welcome to our OS Team Project Website';
 let i = 0;
 const typing = () => {
