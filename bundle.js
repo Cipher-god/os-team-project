@@ -1,8 +1,8 @@
 "use strict";
 
-var _mongodb = require("mongodb");
+import { MongoClient } from "mongodb";
 var uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
-var client = new _mongodb.MongoClient(uri, {
+var client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
