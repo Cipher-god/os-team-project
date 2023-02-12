@@ -21,4 +21,3 @@ const typing2 = () => {
 }
 setTimeout(typing,0);
 setTimeout(typing2,5000);
-Connection();
