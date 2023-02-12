@@ -268,15 +268,16 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 
 var MongoClient = require('mongoose');
 var uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
-MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB server');
-    const db = mongoose.connection.db;
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.log('Unable to connect to the MongoDB server. Error:', err);
-  });
+var client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+client.connect(function (err) {
+  if (err) throw err;
+  var db = client.db("scheduling_algos");
+  console.log("Connected to MongoDB!");
+  client.close();
+});
 
 },{"mongoose":4}],4:[function(require,module,exports){
 (function (setImmediate){(function (){
