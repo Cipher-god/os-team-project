@@ -266,19 +266,17 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 },{"process/browser.js":1,"timers":2}],3:[function(require,module,exports){
 "use strict";
 
-var _mongoose = _interopRequireDefault(require("mongoose"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var MongoClient = _mongoose["default"].MongoClient;
+var mongoose = require('mongoose');
 var uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
-var client = new MongoClient(uri, {
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
-client.connect(function (err) {
-  if (err) throw err;
-  var db = client.db("scheduling_algos");
-  console.log("Connected to MongoDB!");
-  client.close();
+}).then(function () {
+  console.log('Connected to MongoDB server');
+  var db = mongoose.connection.db;
+  mongoose.connection.close();
+})["catch"](function (err) {
+  console.log('Unable to connect to the MongoDB server. Error:', err);
 });
 
 },{"mongoose":4}],4:[function(require,module,exports){
