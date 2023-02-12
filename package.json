@@ -1,9 +1,11 @@
 {
   "name": "os-team-project",
   "type": "module",
+  "main": "index.js",
   "dependencies": {
     "babelify": "^10.0.0",
     "mongodb": "^5.0.1",
+    "mongoose": "^6.9.1",
     "readline": "^1.3.0"
   },
   "devDependencies": {
