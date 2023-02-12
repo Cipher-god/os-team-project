@@ -1,4 +1,5 @@
-const MongoClient = require('mongoose');
+import pkg from 'mongoose';
+const { MongoClient } = pkg;
 const uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
