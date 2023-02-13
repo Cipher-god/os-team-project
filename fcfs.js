@@ -51,9 +51,9 @@ function generate()
   }
   let processes = [
     { burstTime: parseInt(document.getElementById("burst-1").value),arrivalTime : parseInt(document.getElementById("arrival-1").value)},
-    { burstTime: 3, arrivalTime: 2 },
-    { burstTime: 3, arrivalTime: 4 },
-    { burstTime: 5, arrivalTime: 6 }
+    { burstTime: parseInt(document.getElementById("burst-2").value),arrivalTime : parseInt(document.getElementById("arrival-2").value) },
+    { burstTime: parseInt(document.getElementById("burst-3").value),arrivalTime : parseInt(document.getElementById("arrival-3").value) },
+    { burstTime: parseInt(document.getElementById("burst-4").value),arrivalTime : parseInt(document.getElementById("arrival-4").value) }
   ];
   
   let result = FCFS(processes);
