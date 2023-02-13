@@ -10,3 +10,23 @@ h1{
     color: whitesmoke;
     font-size: 40pt;
 }
+button#fcfs {
+    display: block;
+    margin: 30px auto; /* add top and bottom margins of 30px and center the button horizontally by setting the left and right margins to auto */
+    padding: 10px 20px; /* add 10px of padding to the top and bottom of the button and 20px of padding to the left and right */
+    background: linear-gradient(to right, #99b3ff, #5d99ff);
+    font-size: 20pt;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+button#fcfs:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+}
+a#fcfslink{
+    text-decoration: none;
+}
