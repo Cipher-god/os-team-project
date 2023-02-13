@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="fcfStyle.css">
+    <title>First Come First Serve (FCFS) Scheduling Algorithm</title>
+  </head>
+  <body>
+    <h1>First Come First Serve (FCFS) Scheduling Algorithm</h1>
+    <table>
+      <tr>
+        <th>Process ID</th>
+        <th>Arrival Time</th>
+        <th>Burst Time</th>
+      </tr>
+      <tr>
+        <td><input type="number" id="process-1"></td>
+        <td><input type="number" id="arrival-1"></td>
+        <td><input type="number" id="burst-1"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="process-2"></td>
+        <td><input type="number" id="arrival-2"></td>
+        <td><input type="number" id="burst-1"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="process-3"></td>
+        <td><input type="number" id="arrival-3"></td>
+        <td><input type="number" id="burst-1"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="process-4"></td>
+        <td><input type="number" id="arrival-4"></td>
+        <td><input type="number" id="burst-1"></td>
+      </tr>
+    </table>
+    <button id="calculate-btn" onclick="generate()">Calculate</button>
+    <h2 id="result-header">Result:</h2>
+    <table>
+      <tr>
+        <th>Process ID</th>
+        <th>Completion Time</th>
+        <th>Waiting Time</th>
+        <th>Turnaround Time</th>
+      </tr>
+      <tr>
+        <td id="p1">1</td>
+        <td id="result-process-1"></td>
+        <td id="result-wait-1"></td>
+        <td id="result-turn-1"></td>
+      </tr>
+      <tr>
+        <td id="p2">2</td>
+        <td id="result-process-2"></td>
+        <td id="result-wait-2"></td>
+        <td id="result-turn-2"></td>
+      </tr>
+      <tr>
+        <td id="p3">3</td>
+        <td id="result-process-3"></td>
+        <td id="result-wait-3"></td>
+        <td id="result-turn-3"></td>
+      </tr>
+      <tr>
+        <td id="p4">4</td>
+        <td id="result-process-4"></td>
+        <td id="result-wait-4"></td>
+        <td id="result-turn-4"></td>
+      </tr>
+    </table>
+    <script src="fcfs.js"></script>
+  </body>
+</html>
