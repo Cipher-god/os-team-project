@@ -1,6 +1,6 @@
 {
   "name": "os-team-project",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "dependencies": {
     "babelify": "^10.0.0",

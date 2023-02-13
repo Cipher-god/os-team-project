@@ -266,7 +266,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 },{"process/browser.js":1,"timers":2}],3:[function(require,module,exports){
 "use strict";
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose/browser');
 var uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
 mongoose.connect(uri, {
   useNewUrlParser: true,
