@@ -1,5 +1,3 @@
-// end of connection function
-// typ1-------------------------
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://osproject_admin:OsProject908@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
 
