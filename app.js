@@ -1,15 +1,11 @@
-const mongoose = require('mongoose');
-const uri = "mongodb+srv://osproject_admin:OsProject908@cluster.mongodb.net/scheduling_algos?retryWrites=true&w=majority";
-mongoose.set('strictQuery', true);
-mongoose.connect(uri, { 
+const mongoose = require("mongoose");
+const uri = "mongodb+srv://osproject_admin:OsProject908@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
+mongoose.set('strictQuery', false);
+const connectParams = { 
   useNewUrlParser: true, 
-  useUnifiedTopology: true,
-})
-  .then(() => {
-    console.log('Connected to MongoDB server');
-    const db = mongoose.connection.db;
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.log('Unable to connect to the MongoDB server. Error:', err);
-  });
+  useUnifiedTopology: true};
+
+mongoose.connect(uri,connectParams).then(() => {console.info("Connected to Database");})
+.catch((e) => {
+  console.info("Error : ",e);
+});

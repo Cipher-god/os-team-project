@@ -1,6 +1,5 @@
 {
   "name": "os-team-project",
-  "type": "commonjs",
   "main": "index.js",
   "dependencies": {
     "babelify": "^10.0.0",
@@ -26,5 +25,20 @@
         }
       ]
     ]
-  }
+  },
+  "description": "os website that calculate various process scheduling algorithms",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cipher-god/os-team-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cipher-god/os-team-project/issues"
+  },
+  "homepage": "https://github.com/Cipher-god/os-team-project#readme"
 }
