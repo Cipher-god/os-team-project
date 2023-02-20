@@ -14,6 +14,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.get('/databases', async (req, res) => {
   try {
     await client.connect();
+    console.log("Connected!!");
     const databases = await client.db().admin().listDatabases();
     res.json(databases);
   } catch (error) {
