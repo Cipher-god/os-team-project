@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,16 +36,11 @@ body {
   width: 20%;
 }
 
-.nav > div > .name > a {
-  text-decoration: none;
-  color: black;
-}
-
 .nav > div > .logo {
   font-family: "Chonburi", cursive;
   font-size: 28px;
   letter-spacing: 2px;
-  padding-right: 37%;
+  width: 60%;
   display: flex;
   justify-content: center;
 }
@@ -115,7 +109,7 @@ body {
   transform: scaleX(1);
 }
 
-.main {
+.mainpage {
   z-index: 1;
   padding: 0px 30px;
   width: 100%;
@@ -123,197 +117,264 @@ body {
   position: fixed;
 }
 
-.main > .image {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
-    ),
-    url("laptop-6087062_1280.png");
-  height: 95vh;
-  background-position: center;
+.mainpage > .page {
+  background: url("assets/images/2834766.jpg");
   background-size: cover;
+  background-position: center;
+  height: 95vh;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.main > .image > div {
-  width: 50%;
-}
-
-.main > .image > .main-heading {
-  font-family: "Chonburi", cursive;
-  font-size: 50px;
-  color: aliceblue;
-  padding: 100px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.main > .image > .main-content {
-  font-family: "Work Sans", sans-serif;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 1px;
-  color: aliceblue;
-  padding: 100px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.main > .image > .divider {
-  width: 2px;
-  background-color: rgba(214, 214, 214, 0.5);
-  height: 70%;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  padding-top: 95vh;
-  width: 100vw;
-}
-
-.content > .menu {
-  background-color: white;
-}
-
-.content > .menu > .menu-heading {
-  font-family: "Work Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  display: flex;
-  justify-content: center;
-  padding: 100px 0px 50px 0px;
-  background-color: white;
-}
-
-.content > .menu > .menu-item {
-  padding: 50px;
-  background-color: rgb(233, 233, 233);
-}
-
-.content > .menu > .menu-item > div {
-  display: flex;
-  justify-content: center;
-}
-
-.content > .menu > .menu-item > div > a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.content > .menu > .menu-item > div > a > div {
-  margin: 20px;
-  width: 10vw;
-  height: 10vw;
+.mainpage > .page > .heading {
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  z-index: 2;
+  padding: 100px 0px 0px 0px;
 }
 
-.content > .menu > .menu-item > div > a > div::before {
+.mainpage > .page > .heading > p {
+  font-family: "Chonburi", cursive;
+  font-size: 50px;
+  font-weight: 600;
+  display: block;
+  letter-spacing: 5px;
+}
+
+.mainpage > .page > .heading > p:nth-child(3) {
+  padding: 30px;
+  font-size: 20px;
+  font-family: "Work Sans";
+  letter-spacing: 19px;
+}
+
+.content {
+  z-index: 2;
+  position: relative;
+  padding-top: 95vh;
+  width: 100vw;
+}
+
+.info {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(233, 233, 233);
+}
+
+.info > .subheading {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.info > .subheading > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 60px;
+}
+
+.info > .subheading > div > div:nth-child(1) {
+  font-family: "Crimson Pro", serif;
+  font-weight: 600;
+  font-size: 35px;
+}
+
+.info > .subheading > div > div:nth-child(1) > span {
+  font-family: "Crimson Pro", serif;
+  color: rgb(0, 184, 184);
+  font-weight: 200;
+  font-style: italic;
+  font-size: 35px;
+}
+
+.info > .subheading > div > div:nth-child(2) > .os {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 5px 0px;
+}
+
+.info > .subheading > div > div:nth-child(2) > .defination {
+  font-family: "Crimson Pro", serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.info > .menu {
+  width: 80%;
+  padding-bottom: 100px;
+}
+
+.info > .menu > .menu-heading {
+  font-family: "Work Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 60px;
+  letter-spacing: 5px;
+}
+
+.info > .menu > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info > .menu > div > div {
+  background-color: white;
+  padding: 10px;
+  margin: 30px;
+  width: 80vh;
+}
+
+.info > .menu > div > div > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.info > .menu > div > div > a > .image {
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  height: 50vh;
+  position: relative;
+}
+
+.info > .menu > div > div > a > .image::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 1;
-  transition: top, bottom, right, left, 300ms ease-in-out;
+  opacity: 0.8;
+  background-color: aliceblue;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 300ms ease-in-out;
 }
 
-.content > .menu > .menu-item > div > a > .fcfs::before {
-  border: 4px solid #ffc000;
-}
-.content > .menu > .menu-item > div > a > .sjf::before {
-  border: 4px solid #06b0d7;
-}
-.content > .menu > .menu-item > div > a > .ljf::before {
-  border: 4px solid #010b1e;
-}
-.content > .menu > .menu-item > div > a > .rr::before {
-  border: 4px solid #430f0f;
-}
-.content > .menu > .menu-item > div > a > .srjf::before {
-  border: 4px solid #e41d1d;
-}
-.content > .menu > .menu-item > div > a > .pp::before {
-  border: 4px solid #484749;
-}
-.content > .menu > .menu-item > div > a > .hrrn::before {
-  border: 4px solid #ff005d;
-}
-.content > .menu > .menu-item > div > a > .lrjf::before {
-  border: 4px solid #220a41;
-}
-.content > .menu > .menu-item > div > a > .pnp::before {
-  border: 4px solid #dda3c4;
+.info > .menu > div > div > a > .image:hover::before {
+  transform: scaleY(1);
 }
 
-.content > .menu > .menu-item > div > a > div:hover::before,
-.content > .menu > .menu-item > div > a > div:focus::before {
-  top: calc(4px * -2);
-  bottom: calc(4px * -2);
-  right: calc(4px * -2);
-  left: calc(4px * -2);
-}
-
-.content > .menu > .menu-item > div > a > div > div:first-child {
+.info > .menu > div > div > a > .image > .link {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  font-size: 20px;
   font-family: "Work Sans", sans-serif;
+  opacity: 0;
+}
+
+.info > .menu > div > div > a > .image > .link:hover {
+  animation: showlink;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showlink {
+  100% {
+    opacity: 1;
+  }
+}
+
+.info > .menu > div > div > a > .image > .title {
+  font-family: "Crimson Pro", serif;
+  color: white;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+.info > .menu > div > .deadlock > a > .image {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("assets/images/laptop-6087062_1280.png");
+  background-size: 32vw;
+  background-position: center;
+}
+
+.info > .menu > div > .sheduling > a > .image {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("assets/images/istockphoto-1054776000-612x612.jpg");
+  background-size: 32vw;
+  background-position: center;
+}
+
+.info > .menu > div > .page > a > .image {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("assets/images/page.jpg");
+  background-size: 40vw;
+  background-position: center;
+}
+
+.info > .menu > div > .disk > a > .image {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("assets/images/disk.jpg");
+  background-size: 40vw;
+  background-position: center;
+}
+
+.info > .menu > div > div > a > .text > .text-heading {
+  font-family: "Crimson Pro", serif;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-.content > .menu > .menu-item > div > a > div > div:last-child {
+.info > .menu > div > div > a > .text > .text-heading::after {
+  content: "";
+  padding: 0.6px;
+  top: 5px;
+  width: 70%;
+  position: relative;
+  background-color: rgb(216, 216, 216);
+  display: block;
+}
+
+.info > .menu > div > div > a > .text {
+  padding: 15px;
   font-family: "Work Sans", sans-serif;
-  font-size: 14px;
   font-weight: 400;
-  text-align: center;
+  font-size: 14px;
 }
 
-.content > .menu > .menu-item > div > a > .fcfs {
-  background-color: #ffc000;
-}
-
-.content > .menu > .menu-item > div > a > .sjf {
-  background-color: #06b0d7;
-}
-
-.content > .menu > .menu-item > div > a > .ljf {
-  background-color: #010b1e;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .rr {
-  background-color: #430f0f;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .srjf {
-  background-color: #e41d1d;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .pp {
-  background-color: #484749;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .hrrn {
-  background-color: #ff005d;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .lrjf {
-  background-color: #220a41;
-  color: aliceblue;
-}
-
-.content > .menu > .menu-item > div > a > .pnp {
-  background-color: #dda3c4;
+.footer {
+  font-family: "Crimson Pro", serif;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  width: 99%;
+  background-color: white;
+  padding: 100px;
+  font-weight: 600;
 }
