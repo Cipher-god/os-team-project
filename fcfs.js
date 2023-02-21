@@ -77,8 +77,8 @@ function add_process(e) {
   let tableBody = document.querySelector(".table>table>tbody");
 
   if (
-    Number.isInteger(arrivalTime) &&
-    Number.isInteger(burstTime) &&
+    Number.isFloat(arrivalTime) &&
+    Number.isFloat(burstTime) &&
     burstTime > 0 &&
     arrivalTime >= 0
   ) {
