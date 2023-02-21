@@ -72,8 +72,8 @@ play_button.addEventListener("click", run_algorithm);
 reset_button.addEventListener("click", reset_table);
 
 function add_process(e) {
-  let arrivalTime = parseInt(document.getElementById("arrival-time").value, 10);
-  let burstTime = parseInt(document.getElementById("brust-time").value, 10);
+  let arrivalTime = parseFloat(document.getElementById("arrival-time").value, 10);
+  let burstTime = parseFloat(document.getElementById("brust-time").value, 10);
   let tableBody = document.querySelector(".table>table>tbody");
 
   if (
@@ -141,8 +141,8 @@ function run_algorithm(e) {
 
   for (let i = 1; i < rowLength; i++) {
     processArr.push({
-      at: parseInt(table.rows.item(i).cells.item(1).innerHTML, 10),
-      bt: parseInt(table.rows.item(i).cells.item(2).innerHTML, 10),
+      at: parseFloat(table.rows.item(i).cells.item(1).innerHTML, 10),
+      bt: parseFloat(table.rows.item(i).cells.item(2).innerHTML, 10),
       pid: "P" + i,
     });
   }
