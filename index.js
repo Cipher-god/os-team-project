@@ -4,26 +4,31 @@ async function listDatabases(client){
   console.log("Databases:");
   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
-//--------------------------
-const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const app = express();
 const uri = "mongodb+srv://admin:osOS1234@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+async function main(){
+  /**
+   * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+   * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+   */
 
-app.get('/databases', async (req, res) => {
+
+  const client = new MongoClient(uri, { useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    serverApi: ServerApiVersion.v1 });
+
   try {
-    await client.connect();
-    console.log("Connected!!");
-    const databases = await client.db().admin().listDatabases();
-    res.json(databases);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal server error');
-  } finally {
-    await client.close();
-  }
-});
+      // Connect to the MongoDB cluster
+      await client.connect();
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+      // Make the appropriate DB calls
+      await  listDatabases(client);
+
+  } catch (e) {
+      console.error(e);
+  } finally {
+      await client.close();
+  }
+}
+
+main().catch(console.error);
