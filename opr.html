@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Optimal Page Replacement Algorithm</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="opr.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Optimal Page Replacement Algorithm</h1>
+    <label for="page-ref">Enter page reference string separated by spaces:</label>
+    <input type="text" id="page-ref" name="page-ref">
+    <br><br>
+    <label for="num-frames">Enter the number of frames:</label>
+    <input type="number" id="num-frames" name="num-frames">
+    <br><br>
+    <button onclick="optimalPage()">Run Algorithm</button>
+    <a href="opr.html"style=""><button>Reset</button></a>
+    <br><br>
+    <div style="width: 80%; margin: auto;">
+      <canvas id="page-fault-chart"></canvas>
+    </div>
+    <br>
+    <p id="output"></p>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      function search(key, fr) {
+        for (let i = 0; i < fr.length; i++) {
+          if (fr[i] === key) {
+            return true;
+          }
+        }
+        return false;
+      }
+      
+      function predict(pg, fr, pn, index) {
+        let res = -1, farthest = index;
+        for (let i = 0; i < fr.length; i++) {
+          let j;
+          for (j = index; j < pn; j++) {
+            if (fr[i] === pg[j]) {
+              if (j > farthest) {
+                farthest = j;
+                res = i;
+              }
+              break;
+            }
+          }
+          if (j === pn) {
+            return i;
+          }
+        }
+        return (res === -1) ? 0 : res;
+      }
+
+      function optimalPage() {
+        let pg = document.getElementById("page-ref").value.trim().split(" ").map(Number);
+        let pn = pg.length;
+        let fn = parseInt(document.getElementById("num-frames").value);
+        let fr = [];
+        let hit = 0;
+        let data = [];
+        let labels = [];
+        for (let i = 0; i < pn; i++) {
+          labels.push("Step " + (i+1));
+          if (search(pg[i], fr)) {
+            hit++;
+            data.push(hit);
+            continue;
+          }
+          if (fr.length < fn) {
+            fr.push(pg[i]);
+          } else {
+            
+            let j = predict(pg, fr, pn, i + 1);
+fr[j] = pg[i];
+}
+data.push(hit);
+}
+let output = document.getElementById("output");
+output.innerHTML = "No. of hits = " + hit + "<br>" + "No. of faults = " + (pn - hit);
+    // creating the chart
+    let ctx = document.getElementById("page-fault-chart").getContext("2d");
+    let chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Page Faults',
+          data: data,
+          borderColor: 'rgb(54, 162, 235)',
+          borderWidth: 2,
+          fill: false,
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+</script>
+ </body>
+</html> 

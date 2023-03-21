@@ -1,0 +1,61 @@
+/* Set the font family and font size for the entire page */
+body {
+  font-family: Arial, sans-serif;
+
+  font-size: 16px;
+}
+
+/* Style the header */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Style the form label */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Style the form input */
+input[type="text"],
+input[type="number"],
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+
+  margin-bottom: 1rem;
+}
+
+/* Style the button */
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the canvas */
+canvas {
+  width: 100%;
+  max-width: 50rem;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the output paragraph */
+#output {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
