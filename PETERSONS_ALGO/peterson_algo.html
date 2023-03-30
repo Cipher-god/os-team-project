@@ -6,7 +6,7 @@
       <!-- content section begins here -->
       <div class="content">
         <div class="theory">
-          <div class="theory-heading" style="background-color:rgb(225, 63, 63)">
+          <div class="theory-heading" style="background-color:rgb(52, 207, 34)">
             <div>OPTIMAL PAGE REPLACEMENT ALGORITHM</div>
             <div>OPR</div>
           </div>
@@ -14,40 +14,49 @@
             <div>Basic Theory :</div>
             <div></div>
             <div>
-              &emsp;&emsp;"Optimal page replacement algorithm" is the most desirable page replacement algorithm 
-              that we use for replacing pages. This algorithm replaces the page whose demand in the future 
-              is least as compared to other pages from frames (secondary memory). The replacement occurs when 
-              the page fault appears. The purpose of this algorithm is to minimize the number of page faults. 
-              Also, one of the most famous abnormalities in the paging technique is "Belady's Anomaly", which is 
-              least seen in this algorithm.
+              &emsp;&emsp;Peterson's formula was designed to work with just two processes but has 
+              since been generalized to accommodate multiple processes.
               <br />
-              &emsp;&emsp;As we know, when a process is executed in our system, the operating system divides 
-              this process into small parts known as 'pages'. And these pages are loaded into secondary memory known as RAMs. 
-              Also, the secondary memory is divided into several frames in which the pages are loaded. The size of the page
-               is always equal to the size of the frames. When a system calls a page and it is not available in the frame,
-               "page fault" occurs. The optimal page replacement algorithm is used to reduce these page faults. It uses the 
-               principle that- "when a page is called by the system and it is not available in the frames, the frame which is 
-               not in demand for the longest future time is replaced by the new page".
+              It would be possible to avoid race conditions if no two processes were ever at a critical stage 
+              simultaneously. To solve the critical section problem of mutual exclusion, we need four conditions 
+              to be true.
+              <ol>
+                <li>During critical sections, two processes cannot run simultaneously.</li>
+                <li>It is not assumed that processes are running at the same speed or on multiple CPUs.</li>
+                <li>There should be no process blocking another process.</li>
+                <li>It is important not to act arbitrarily long before entering a critical section in a process.</li>
+              </ol>
             </div>
           </div>
           <div class="theory-step">
             <ul>
               <label>STEP 1 :</label>
               <li>
-                Create an empty vector to represent the frames.
+                Initialize the shared variables turn and flag to a known state (e.g., turn = 1, flag[0] = flag[1] = false).
               </li>
               <label>STEP 2 :</label>
               <li>
-                For each page in the page reference sequence:
-                <br>a. If the page is found in the current frame, it is considered a hit.
-                <br>b. If the page is not found in the current frame, it is considered a fault.
-                <br>i. If there is space available in the frames, the page is added to the frame.
-                <br>ii. If there is no space available in the frames, find the page that will not be used for the longest duration of time in the future.
-                <br>iii. Replace the page in the frame with the one that caused the faults.
+                Each process sets its flag to true to indicate it wants to enter the critical section.
               </li>
               <label>STEP 3 :</label>
               <li>
-                Output the number of hits and faults.
+                Each process sets turn to the other process's id to give the other process priority if it also wants to enter the critical section.
+              </li>
+              <label>STEP 4 :</label>
+              <li>
+                Each process enters a busy-waiting loop while the other process's flag is true and it is not its turn.
+              </li>
+              <label>STEP 5 :</label>
+              <li>
+                Once a process has exited the busy-waiting loop, it enters the critical section to execute the protected code.
+              </li>
+              <label>STEP 6 :</label>
+              <li>
+                When a process is done executing the critical section, it sets its flag to false to indicate it no longer needs access and gives the turn to the other process.
+              </li>
+              <label>STEP 7 :</label>
+              <li>
+                The other process can now enter its critical section, or continue to busy-wait if it still needs to wait.
               </li>
             </ul>
           </div>
