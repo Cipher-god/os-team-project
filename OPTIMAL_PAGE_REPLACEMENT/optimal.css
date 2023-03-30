@@ -91,3 +91,51 @@ label{
 #fbg{
   background-color: red;
 }
+.content > .theory > .theory-text > div:nth-child(2) {
+  height: 1.5px;
+  background-color: rgb(216, 216, 216);
+  width: 100%;
+}
+
+.content > .theory > .theory-text > div:last-child {
+  text-align: justify;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+  color: rgb(61, 61, 61);
+  padding-top: 20px;
+}
+
+.content > .theory > .theory-step {
+  margin: 20px 0px;
+  background-color: #252141;
+  border-radius: 5px;
+  padding: 20px 100px 40px 100px;
+}
+
+.content > .theory > .theory-step > ul {
+  text-align: justify;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+  color: rgb(221, 221, 221);
+  padding: 20px 0px 0px 20px;
+  list-style: none;
+}
+
+.content > .theory > .theory-step > ul > label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #638891;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+}
+
+.content > .theory > .theory-step > ul > li {
+  padding-bottom: 15px;
+}

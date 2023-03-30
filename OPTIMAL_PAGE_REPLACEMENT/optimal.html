@@ -6,7 +6,55 @@
     <link rel="stylesheet" href="optimal.css">
 </head>
 <body>
-    <h1>Optimal Page Replacement</h1>
+    <div class="content">
+        <div class="theory">
+          <div class="theory-heading" style="background-color:rgb(30, 144, 230)">
+            <div>OPTIMAL PAGE REPLACEMENT ALGORITHM</div>
+            <div>OPR</div>
+          </div>
+          <div class="theory-text">
+            <div>Basic Theory :</div>
+            <div></div>
+            <div>
+              &emsp;&emsp;"Optimal page replacement algorithm" is the most desirable page replacement algorithm 
+              that we use for replacing pages. This algorithm replaces the page whose demand in the future 
+              is least as compared to other pages from frames (secondary memory). The replacement occurs when 
+              the page fault appears. The purpose of this algorithm is to minimize the number of page faults. 
+              Also, one of the most famous abnormalities in the paging technique is "Belady's Anomaly", which is 
+              least seen in this algorithm.
+              <br />
+              &emsp;&emsp;As we know, when a process is executed in our system, the operating system divides 
+              this process into small parts known as 'pages'. And these pages are loaded into secondary memory known as RAMs. 
+              Also, the secondary memory is divided into several frames in which the pages are loaded. The size of the page
+               is always equal to the size of the frames. When a system calls a page and it is not available in the frame,
+               "page fault" occurs. The optimal page replacement algorithm is used to reduce these page faults. It uses the 
+               principle that- "when a page is called by the system and it is not available in the frames, the frame which is 
+               not in demand for the longest future time is replaced by the new page".
+            </div>
+          </div>
+          <div class="theory-step">
+            <ul>
+              <label>STEP 1 :</label>
+              <li>
+                Create an empty vector to represent the frames.
+              </li>
+              <label>STEP 2 :</label>
+              <li>
+                For each page in the page reference sequence:
+                a. If the page is found in the current frame, it is considered a hit.
+                b. If the page is not found in the current frame, it is considered a fault.
+                i. If there is space available in the frames, the page is added to the frame.
+                ii. If there is no space available in the frames, find the page that will not be used for the longest duration of time in the future.
+                iii. Replace the page in the frame with the one that caused the faults.
+              </li>
+              <label>STEP 3 :</label>
+              <li>
+                Output the number of hits and faults.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     <div class="box">
     <label for="">Enter page reference string:</label>
     <input type="text" id="inputString">
