@@ -1,74 +1,58 @@
 <html>
     <head>
         <title>Peterson's Algorithm</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="peterson_algo.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://kit.fontawesome.com/f6295bb103.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
-        <section class="sub-header">
-			<nav>
-			  <div class="nav-links" id="navLinks">
-				<!-- <i class="fa fa-times" onclick="hideMenu()"></i> -->
-				<ul>
-				  
-				</ul>
-			  </div>
-			  <!-- <i class="fa fa-bars" onclick="showMenu()"></i> -->
-			</nav>
-			<section>
-
-			  <div class="content">
-				<h2 style="font-family: 'Poppins', sans-serif;">Peterson's Algorithm</h2>
-				<h2 style="font-family: 'Poppins', sans-serif;">Peterson's Algorithm</h2>
-			  </div>
-			</section>
-
-		  </section>
-
-		  <div class="def">
-			<h4 style="font-family: 'Poppins', sans-serif;" >Try it below!</h4>
-
-		  </div>
-
-        <!--table-->
-        <div class="contact100-form-title pt-3 pb-0" id = 'turn_state'></div>
-        <div class="contact100-form-title pt-3 pb-0" id="flag1"></div>
-        <div class="contact100-form-title pt-3 pb-0" id="flag2"></div>
-
-
-
-
-        <div class="container-fluid pt-3 pb-0" id = 'lock_state'>
-            <section class='border border-black'>
-                <div class="contact100-form-title pt-3 pb-0" id = 'entry_head'>Entry state:</div>
-                <div class = 'text-center pl-4' id='entry'>
-                    <button id = '1' onclick="critical_state(this.id)">P1</button>
-                    <button id = '2' onclick="critical_state(this.id)">P2</button>
-                </div>
-            </section>
-            <section class='border border-black '>
-                <div class="contact100-form-title pt-3 pb-0" id = 'critical_head'>Critical state:</div>
-                <div class = 'text-center pl-4' id='critical'></div>
-            </section>
-            <section class='border border-black '>
-                <div class="contact100-form-title pt-3 pb-0" id = 'exit_head'>Exit State:</div>
-                <div class = 'text-center pl-4' id='exit'></div>
-            </section>
-            <section>
-                <div class="contact100-form-title pt-3 pb-0"></div>
-                <div class = 'continer pl-4'></div>
-            </section>
+      <!-- content section begins here -->
+      <div class="content">
+        <div class="theory">
+          <div class="theory-heading" style="background-color:rgb(225, 63, 63)">
+            <div>OPTIMAL PAGE REPLACEMENT ALGORITHM</div>
+            <div>OPR</div>
+          </div>
+          <div class="theory-text">
+            <div>Basic Theory :</div>
+            <div></div>
+            <div>
+              &emsp;&emsp;"Optimal page replacement algorithm" is the most desirable page replacement algorithm 
+              that we use for replacing pages. This algorithm replaces the page whose demand in the future 
+              is least as compared to other pages from frames (secondary memory). The replacement occurs when 
+              the page fault appears. The purpose of this algorithm is to minimize the number of page faults. 
+              Also, one of the most famous abnormalities in the paging technique is "Belady's Anomaly", which is 
+              least seen in this algorithm.
+              <br />
+              &emsp;&emsp;As we know, when a process is executed in our system, the operating system divides 
+              this process into small parts known as 'pages'. And these pages are loaded into secondary memory known as RAMs. 
+              Also, the secondary memory is divided into several frames in which the pages are loaded. The size of the page
+               is always equal to the size of the frames. When a system calls a page and it is not available in the frame,
+               "page fault" occurs. The optimal page replacement algorithm is used to reduce these page faults. It uses the 
+               principle that- "when a page is called by the system and it is not available in the frames, the frame which is 
+               not in demand for the longest future time is replaced by the new page".
+            </div>
+          </div>
+          <div class="theory-step">
+            <ul>
+              <label>STEP 1 :</label>
+              <li>
+                Create an empty vector to represent the frames.
+              </li>
+              <label>STEP 2 :</label>
+              <li>
+                For each page in the page reference sequence:
+                <br>a. If the page is found in the current frame, it is considered a hit.
+                <br>b. If the page is not found in the current frame, it is considered a fault.
+                <br>i. If there is space available in the frames, the page is added to the frame.
+                <br>ii. If there is no space available in the frames, find the page that will not be used for the longest duration of time in the future.
+                <br>iii. Replace the page in the frame with the one that caused the faults.
+              </li>
+              <label>STEP 3 :</label>
+              <li>
+                Output the number of hits and faults.
+              </li>
+            </ul>
+          </div>
         </div>
-        <!--button-->
-
-        <div class = 'continer pl-4' id='process_button'>
-
-        </div>
-
-        <script src="peterson_algo.js"></script>
-
+      </div>
+      <!-- content ends here -->
     </body>
 </html>
