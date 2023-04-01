@@ -1,69 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Peterson's Algorithm</title>
-        <link rel="stylesheet" href="peterson_algo.css">
-    </head>
-    <body>
-      <!-- content section begins here -->
-      <div class="content">
-        <div class="theory">
-          <div class="theory-heading" style="background-color:rgb(52, 207, 34)">
-            <div>PETERSON'S SOLUTION ALGORITHM</div>
-            <div>PS</div>
-          </div>
-          <div class="theory-text">
-            <div>Basic Theory :</div>
+
+<head>
+  <title>Peterson's Algorithm</title>
+  <link rel="stylesheet" href="peterson_algo.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="nav">
+      <div>
+        <div class="name"><a href="../../index.html">HOME</a></div>
+        <div class="logo">LAB PROJECT</div>
+        <div class="button">
+          <div>
             <div></div>
-            <div>
-              &emsp;&emsp;Peterson's formula was designed to work with just two processes but has 
-              since been generalized to accommodate multiple processes.
-              <br />
-              It would be possible to avoid race conditions if no two processes were ever at a critical stage 
-              simultaneously. To solve the critical section problem of mutual exclusion, we need four conditions 
-              to be true.
-              <ol style="list-style-type: circle;">
-                <li>During critical sections, two processes cannot run simultaneously.</li>
-                <li>It is not assumed that processes are running at the same speed or on multiple CPUs.</li>
-                <li>There should be no process blocking another process.</li>
-                <li>It is important not to act arbitrarily long before entering a critical section in a process.</li>
-              </ol>
-            </div>
-          </div>
-          <div class="theory-step">
-            <ul>
-              <label>STEP 1 :</label>
-              <li>
-                Initialize the shared variables turn and flag to a known state (e.g., turn = 1, flag[0] = flag[1] = false).
-              </li>
-              <label>STEP 2 :</label>
-              <li>
-                Each process sets its flag to true to indicate it wants to enter the critical section.
-              </li>
-              <label>STEP 3 :</label>
-              <li>
-                Each process sets turn to the other process's id to give the other process priority if it also wants to enter the critical section.
-              </li>
-              <label>STEP 4 :</label>
-              <li>
-                Each process enters a busy-waiting loop while the other process's flag is true and it is not its turn.
-              </li>
-              <label>STEP 5 :</label>
-              <li>
-                Once a process has exited the busy-waiting loop, it enters the critical section to execute the protected code.
-              </li>
-              <label>STEP 6 :</label>
-              <li>
-                When a process is done executing the critical section, it sets its flag to false to indicate it no longer needs access and gives the turn to the other process.
-              </li>
-              <label>STEP 7 :</label>
-              <li>
-                The other process can now enter its critical section, or continue to busy-wait if it still needs to wait.
-              </li>
-            </ul>
+            MENU
           </div>
         </div>
       </div>
-      <!-- content ends here -->
-    </body>
+    </div>
+    <div class="menu">
+      <div class="menu-item">
+        <div>
+          <a href="#">
+            <div class="fcfs">
+              <div class="short-title">FCFS</div>
+              <div class="long-title">
+                First come<br />
+                first serve
+              </div>
+            </div>
+          </a>
+          <a href="../PETERSONS_ALGO/peterson_algo.html">
+            <div class="sjf">
+              <div class="short-title">PS</div>
+              <div class="long-title">
+                Peterson's Solution
+              </div>
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="../PRIORITY_PREEMPTIVE/priorityalgo.html">
+            <div class="rr">
+              <div class="short-title">PP</div>
+              <div class="long-title">Priority Preemptive<br></div>
+            </div>
+          </a>
+          <a href="../OPTIMAL_PAGE_REPLACEMENT/optimal.html">
+            <div class="srjf">
+              <div class="short-title">OPR</div>
+              <div class="long-title">Optimal Page Replacement<br>Algorithm
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- content section begins here -->
+    <div class="content">
+      <div class="theory">
+        <div class="theory-heading" style="background-color:rgb(52, 207, 34)">
+          <div>PETERSON'S SOLUTION ALGORITHM</div>
+          <div>PS</div>
+        </div>
+        <div class="theory-text">
+          <div>Basic Theory :</div>
+          <div></div>
+          <div>
+            &emsp;&emsp;Peterson's formula was designed to work with just two processes but has
+            since been generalized to accommodate multiple processes.
+            <br />
+            It would be possible to avoid race conditions if no two processes were ever at a critical stage
+            simultaneously. To solve the critical section problem of mutual exclusion, we need four conditions
+            to be true.
+            <ol style="list-style-type: circle;">
+              <li>During critical sections, two processes cannot run simultaneously.</li>
+              <li>It is not assumed that processes are running at the same speed or on multiple CPUs.</li>
+              <li>There should be no process blocking another process.</li>
+              <li>It is important not to act arbitrarily long before entering a critical section in a process.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="theory-step">
+          <ul>
+            <label>STEP 1 :</label>
+            <li>
+              Initialize the shared variables turn and flag to a known state (e.g., turn = 1, flag[0] = flag[1] =
+              false).
+            </li>
+            <label>STEP 2 :</label>
+            <li>
+              Each process sets its flag to true to indicate it wants to enter the critical section.
+            </li>
+            <label>STEP 3 :</label>
+            <li>
+              Each process sets turn to the other process's id to give the other process priority if it also wants to
+              enter the critical section.
+            </li>
+            <label>STEP 4 :</label>
+            <li>
+              Each process enters a busy-waiting loop while the other process's flag is true and it is not its turn.
+            </li>
+            <label>STEP 5 :</label>
+            <li>
+              Once a process has exited the busy-waiting loop, it enters the critical section to execute the protected
+              code.
+            </li>
+            <label>STEP 6 :</label>
+            <li>
+              When a process is done executing the critical section, it sets its flag to false to indicate it no longer
+              needs access and gives the turn to the other process.
+            </li>
+            <label>STEP 7 :</label>
+            <li>
+              The other process can now enter its critical section, or continue to busy-wait if it still needs to wait.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- content ends here -->
+  </div>
+</body>
+
 </html>
