@@ -2,133 +2,136 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Optimal Page Replacement</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="optimal.css">
 </head>
 
 <body>
   <div class="header">
-  <div class="nav">
-    <div>
-      <div class="name"><a href="../../index.html">HOME</a></div>
-      <div class="logo">LAB PROJECT</div>
-      <div class="button">
+    <div class="nav">
+      <div>
+        <div class="name"><a href="../../index.html">HOME</a></div>
+        <div class="logo">LAB PROJECT</div>
+        <div class="button">
+          <div>
+            <div></div>
+            MENU
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="menu-item">
         <div>
+          <a href="#">
+            <div class="fcfs">
+              <div class="short-title">FCFS</div>
+              <div class="long-title">
+                First come<br />
+                first serve
+              </div>
+            </div>
+          </a>
+          <a href="../PETERSONS_ALGO/peterson_algo.html">
+            <div class="sjf">
+              <div class="short-title">PS</div>
+              <div class="long-title">
+                Peterson's Solution
+              </div>
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="../PRIORITY_PREEMPTIVE/priorityalgo.html">
+            <div class="rr">
+              <div class="short-title">PP</div>
+              <div class="long-title">Priority Preemptive<br></div>
+            </div>
+          </a>
+          <a href="../OPTIMAL_PAGE_REPLACEMENT/optimal.html">
+            <div class="srjf">
+              <div class="short-title">OPR</div>
+              <div class="long-title">Optimal Page Replacement<br>Algorithm
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="theory">
+        <div class="theory-heading" style="background-color:rgb(225, 63, 63)">
+          <div>OPTIMAL PAGE REPLACEMENT ALGORITHM</div>
+          <div>OPR</div>
+        </div>
+        <div class="theory-text">
+          <div>Basic Theory :</div>
           <div></div>
-          MENU
+          <div>
+            &emsp;&emsp;"Optimal page replacement algorithm" is the most desirable page replacement algorithm
+            that we use for replacing pages. This algorithm replaces the page whose demand in the future
+            is least as compared to other pages from frames (secondary memory). The replacement occurs when
+            the page fault appears. The purpose of this algorithm is to minimize the number of page faults.
+            Also, one of the most famous abnormalities in the paging technique is "Belady's Anomaly", which is
+            least seen in this algorithm.
+            <br />
+            &emsp;&emsp;As we know, when a process is executed in our system, the operating system divides
+            this process into small parts known as 'pages'. And these pages are loaded into secondary memory known as
+            RAMs.
+            Also, the secondary memory is divided into several frames in which the pages are loaded. The size of the
+            page
+            is always equal to the size of the frames. When a system calls a page and it is not available in the frame,
+            "page fault" occurs. The optimal page replacement algorithm is used to reduce these page faults. It uses the
+            principle that- "when a page is called by the system and it is not available in the frames, the frame which
+            is
+            not in demand for the longest future time is replaced by the new page".
+          </div>
+        </div>
+        <div class="theory-step">
+          <ul>
+            <label>STEP 1 :</label>
+            <li>
+              Create an empty vector to represent the frames.
+            </li>
+            <label>STEP 2 :</label>
+            <li>
+              For each page in the page reference sequence:
+              <br>a. If the page is found in the current frame, it is considered a hit.
+              <br>b. If the page is not found in the current frame, it is considered a fault.
+              <br>i. If there is space available in the frames, the page is added to the frame.
+              <br>ii. If there is no space available in the frames, find the page that will not be used for the longest
+              duration of time in the future.
+              <br>iii. Replace the page in the frame with the one that caused the faults.
+            </li>
+            <label>STEP 3 :</label>
+            <li>
+              Output the number of hits and faults.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="menu">
-    <div class="menu-item">
-      <div>
-        <a href="#">
-          <div class="fcfs">
-            <div class="short-title">FCFS</div>
-            <div class="long-title">
-              First come<br />
-              first serve
-            </div>
-          </div>
-        </a>
-        <a href="../PETERSONS_ALGO/peterson_algo.html">
-          <div class="sjf">
-            <div class="short-title">PS</div>
-            <div class="long-title">
-              Peterson's Solution
-            </div>
-          </div>
-        </a>
-      </div>
-      <div>
-        <a href="../PRIORITY_PREEMPTIVE/priorityalgo.html">
-          <div class="rr">
-            <div class="short-title">PP</div>
-            <div class="long-title">Priority Preemptive<br></div>
-          </div>
-        </a>
-        <a href="../OPTIMAL_PAGE_REPLACEMENT/optimal.html">
-          <div class="srjf">
-            <div class="short-title">OPR</div>
-            <div class="long-title">Optimal Page Replacement<br>Algorithm
-            </div>
-          </div>
-        </a>
+    <div class="box">
+      <label for="">Enter page reference string:</label>
+      <input type="text" id="inputString">
+      <br>
+      <label>Enter number of frames: </label>
+      <input type="number" id="inputFrames">
+      <br>
+      <div class="buttons">
+        <button onclick="runOptimalPageReplacement()">Run</button>
       </div>
     </div>
+    <table id="outputTable"></table>
+    <div id="ratio_result"></div>
   </div>
-  <div class="content">
-    <div class="theory">
-      <div class="theory-heading" style="background-color:rgb(225, 63, 63)">
-        <div>OPTIMAL PAGE REPLACEMENT ALGORITHM</div>
-        <div>OPR</div>
-      </div>
-      <div class="theory-text">
-        <div>Basic Theory :</div>
-        <div></div>
-        <div>
-          &emsp;&emsp;"Optimal page replacement algorithm" is the most desirable page replacement algorithm
-          that we use for replacing pages. This algorithm replaces the page whose demand in the future
-          is least as compared to other pages from frames (secondary memory). The replacement occurs when
-          the page fault appears. The purpose of this algorithm is to minimize the number of page faults.
-          Also, one of the most famous abnormalities in the paging technique is "Belady's Anomaly", which is
-          least seen in this algorithm.
-          <br />
-          &emsp;&emsp;As we know, when a process is executed in our system, the operating system divides
-          this process into small parts known as 'pages'. And these pages are loaded into secondary memory known as
-          RAMs.
-          Also, the secondary memory is divided into several frames in which the pages are loaded. The size of the page
-          is always equal to the size of the frames. When a system calls a page and it is not available in the frame,
-          "page fault" occurs. The optimal page replacement algorithm is used to reduce these page faults. It uses the
-          principle that- "when a page is called by the system and it is not available in the frames, the frame which is
-          not in demand for the longest future time is replaced by the new page".
-        </div>
-      </div>
-      <div class="theory-step">
-        <ul>
-          <label>STEP 1 :</label>
-          <li>
-            Create an empty vector to represent the frames.
-          </li>
-          <label>STEP 2 :</label>
-          <li>
-            For each page in the page reference sequence:
-            <br>a. If the page is found in the current frame, it is considered a hit.
-            <br>b. If the page is not found in the current frame, it is considered a fault.
-            <br>i. If there is space available in the frames, the page is added to the frame.
-            <br>ii. If there is no space available in the frames, find the page that will not be used for the longest
-            duration of time in the future.
-            <br>iii. Replace the page in the frame with the one that caused the faults.
-          </li>
-          <label>STEP 3 :</label>
-          <li>
-            Output the number of hits and faults.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="box">
-    <label for="">Enter page reference string:</label>
-    <input type="text" id="inputString">
-    <br>
-    <label>Enter number of frames: </label>
-    <input type="number" id="inputFrames">
-    <br>
-    <div class="buttons">
-      <button onclick="runOptimalPageReplacement()">Run</button>
-    </div>
-  </div>
-  <table id="outputTable"></table>
-  <div id="ratio_result"></div>
-</div>
   <script src="optimal.js"></script>
 </body>
 
