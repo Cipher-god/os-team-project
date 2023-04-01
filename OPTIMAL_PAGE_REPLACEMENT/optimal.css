@@ -190,3 +190,34 @@ label{
 .content > .theory > .theory-step > ul > li {
   padding-bottom: 15px;
 }
+.box > div:first-child > .buttons {
+  display: flex;
+  padding-left: 40%;
+  justify-content: space-between;
+  color: aliceblue;
+  align-items: center;
+}
+
+.box > div:first-child > .buttons > div {
+  background-color: #5972d9;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 10px;
+}
+
+.box > div:first-child > .buttons > div:hover {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(57, 10, 177, 0.2),
+    rgba(0, 0, 0, 0.2)
+  );
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
