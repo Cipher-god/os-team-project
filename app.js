@@ -1,11 +1,18 @@
-const mongoose = require("mongoose");
-const uri = "mongodb+srv://admin:OSproject147@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
-mongoose.set('strictQuery', false);
-const connectParams = { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true};
-
-mongoose.connect(uri,connectParams).then(() => {console.info("Connected to Database");})
-.catch((e) => {
-  console.info("Error : ",e);
-});
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://admin:OSproject147@cluster0.kwcneuy.mongodb.net/algorithms?retryWrites=true&w=majority";
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+  client.connect(err => {
+    console.log("Connection Successful !")
+    // perform actions on the collection object
+    client.close();
+  });
+async function getData()
+{
+  let result = await client.connect();
+  let db = result.db('algorithms');
+  let collection = db.collection('pps');
+  let response = await collection.find({}).toArray()
+  console.log(response);
+}
+getData();
+//--
