@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://osproject_admin:OsProject908@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:OSproject147@cluster0.kwcneuy.mongodb.net/shedulingprocesses?retryWrites=true&w=majority";
 mongoose.set('strictQuery', false);
 const connectParams = { 
   useNewUrlParser: true, 
