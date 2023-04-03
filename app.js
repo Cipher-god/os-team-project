@@ -13,6 +13,7 @@ async function getData()
   let collection = db.collection('pps');
   let response = await collection.find({}).toArray()
   console.log(response);
+  document.getElementById("dataps");
   client.close();
 }
 getData();
