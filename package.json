@@ -1,6 +1,7 @@
 {
   "name": "os-team-project",
   "version": "1.0.0",
+  "type": "module",
   "description": "os website that calculate various process scheduling algorithms https://os-teamproject.netlify.app",
   "main": "app.js",
   "dependencies": {

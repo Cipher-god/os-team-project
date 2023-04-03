@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = "mongodb+srv://admin:OSproject147@cluster0.kwcneuy.mongodb.net/algorithms?retryWrites=true&w=majority";
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
   client.connect(err => {
@@ -17,4 +17,5 @@ async function getData()
   client.close();
 }
 getData();
+//
 //--
