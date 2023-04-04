@@ -374,3 +374,42 @@ body {
   .menu > .menu-item > div > a > .pnp {
     background-color: #dda3c4;
   }
+
+.add-button{
+  background-color: #5972d9;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 10px;
+  color: white; 
+}
+.add-button:hover{
+   background-image: linear-gradient(
+    to bottom,
+    rgba(57, 10, 177, 0),
+    rgba(0, 0, 0, 0.2)
+  );
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+.add-button-r{
+  background-color: #5972d9;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 10px;
+  color: white; 
+}
