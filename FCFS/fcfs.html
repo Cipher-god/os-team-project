@@ -1,178 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FCFS Disk Scheduling</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="fcfStyle.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <head>
+       <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link6
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FCFS Disk Scheduling Algorithms Visualization</title>
+        <!--CSS and Script linking-->
 
-</head>
+        <link rel="stylesheet" href="fcfs.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chonburi&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    </head>
+      <header>
 
-<body>
-  <div class="scroll-up-btn">??
-    <i class="fas fa-angle-up"></i>
-  </div>
-  <div class="center">
-    <section>
-      <a href="Demo_FCFS.html">
-        <h1>FCFS DISK SCHEDULING</h1>
-      </a>
-      <form id="form">
-        <div id="RequestQueue">REQUEST QUERIES: </div>
-        <br>
-        <label for="queries">Queries:</label>
-
-        <div id="queryInputs">
-          <input width="5" type="number" id="request" name="query">
+    <body>     
+    <div class="header">
+      <div class="nav">
+        <div>
+          <div class="name"><a href="../../index.html">HOME</a></div>
+          <div class="logo">VIRTUAL LAB</div>
+          <div class="button">
+            <div>
+              <div></div>
+              MENU
+            </div>
+          </div>
         </div>
-
-        <button type="button" id="addQuery" style="">Add</button>
-        <br><br>
-        <label for="head">Head Position:</label>
-        <input type="number" id="head" name="head" required><br><br>
-
-        <button id="submit" type="submit" style="">Submit</button>
-        <button id="ShowGraph" onclick="sendData()">Show Graph</button>
-        <a href="Demo_FCFS.html" id="Reset" style="">Reset</a>
-        <div id="seektime"></div>
-      </form>
-
-      <div id="Graph" style="visibility: hidden;">
-        <canvas id="myChart"></canvas>
+      </div>
+      <div class="menu">
+        <div class="menu-item">
+          <div>
+            <a href="#">
+              <div class="fcfs">
+                <div class="short-title">FCFS</div>
+                <div class="long-title">
+                  First come<br />
+                  first serve
+                </div>
+              </div>
+            </a>
+            <a href="../SJF/sjf.html">
+              <div class="sjf">
+                <div class="short-title">SJF</div>
+                <div class="long-title">
+                  Shortest job<br />
+                  first
+                </div>
+              </div>
+            </a>
+            <a href="../LJF/ljf.html">
+              <div class="ljf">
+                <div class="short-title">LJF</div>
+                <div class="long-title">
+                  Longest job<br />
+                  first
+                </div>
+              </div>
+            </a>
+          </div>
+          <div>
+            <a href="../RR/rr.html">
+              <div class="rr">
+                <div class="short-title">RR</div>
+                <div class="long-title">Round Robin</div>
+              </div>
+            </a>
+            <a href="../SRJF/srjf.html">
+              <div class="srjf">
+                <div class="short-title">SRJF</div>
+                <div class="long-title">
+                  Shortest<br />
+                  remaining job<br />
+                  first
+                </div>
+              </div>
+            </a>
+            <a href="../PP/pp.html">
+              <div class="pp">
+                <div class="short-title">PP</div>
+                <div class="long-title">
+                  Prioprity<br />
+                  ( preemptive )
+                </div>
+              </div>
+            </a>
+          </div>
+          <div>
+            <a href="../HRRN/hrrn.html">
+              <div class="hrrn">
+                <div class="short-title">HRRN</div>
+                <div class="long-title">
+                  Highest<br />
+                  response ratio<br />
+                  next
+                </div>
+              </div>
+            </a>
+            <a href="../LRJF/lrjf.html">
+              <div class="lrjf">
+                <div class="short-title">LRJF</div>
+                <div class="long-title">
+                  Longest<br />
+                  remaining job<br />
+                  first
+                </div>
+              </div>
+            </a>
+            <a href="../PNP/pnp.html">
+              <div class="pnp">
+                <div class="short-title">PNP</div>
+                <div class="long-title">
+                  Priority<br />
+                  ( non-preemptive )
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 
-    </section>
-  </div>
-</body>
-<script>
+      <div class="content">
+        <div class="theory">
+          <div class="theory-heading">
+            <div>FIRST COME FIRST SERVE</div>
+            <div>F.C.F.S.</div>
+          </div>
+          <div class="theory-text">
+            <div>Basic Theory :</div>
+            <div></div>
+            <div>
+              &emsp;&emsp;First Come First Serve (FCFS) is an operating system
+              scheduling algorithm that automatically executes queued requests
+              and processes in order of their arrival.
+              <br />
+              &emsp;&emsp;It is non-preemptive algorithm. It is the easiest and
+              simplest CPU scheduling algorithm. In this type of algorithm,
+              processes which requests the CPU first get the CPU allocation
+              first. This is managed with a FIFO queue. As the process enters
+              the ready queue, its PCB (Process Control Block) is linked with
+              the tail of the queue and, when the CPU becomes free, it should be
+              assigned to the process at the beginning of the queue. FCFS also
+              suffers from starvation which arise if the first process has
+              larger burst time.
+            </div>
+          </div>
+          <div class="theory-step">
+            <ul>
+              <label>STEP 1 :</label>
+              <li>
+                Input the number of processes required to be scheduled using
+                FCFS, burst time for each process and its arrival time.
+              </li>
+              <label>STEP 2 :</label>
+              <li>
+                Using enhanced bubble sort technique, sort the all given
+                processes in ascending order according to arrival time in a
+                ready queue.
+              </li>
+              <label>STEP 3 :</label>
+              <li>
+                Calculate the Finish Time, Turn Around Time and Waiting Time for
+                each process which in turn help to calculate Average Waiting
+                Time and Average Turn Around Time required by CPU to schedule
+                given set of process using FCFS.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  var form = document.getElementById('form');
-  var headInput = document.getElementById('head');
-  var queryInputs = document.getElementById('queryInputs');
-  var addQueryButton = document.getElementById('addQuery');
-  var chartContainer = document.getElementById('myChart');
-  var chart = null;
-  var ShowGraph = document.getElementById('ShowGraph');
-  var submit = document.getElementById('submit');
-  var Reset = document.getElementById('Reset');
-  const requestInput = document.getElementById('request');
-
-  var queries = [];
-  addQueryButton.addEventListener('click', function () {
-    //var newQueryInput = document.createElement('input');
-    //newQueryInput.type = 'number';
-    //newQueryInput.name = 'query';
-    //newQueryInput.required = true;
-    //queryInputs.appendChild(newQueryInput);
-
-    const request = requestInput.value;
-    if (request === "") {
-      alert("Please fill the Query");
-    } else {
-      queries.push(request);
-      requestInput.value = null;
-
-      document.getElementById("RequestQueue").innerHTML = "REQUEST QUERIES: " + queries;
-    }
-  });
-  ShowGraph.addEventListener('click', function () {
-    form.style.marginLeft = "10%";
-    ShowGraph.style.display = "none";
-    submit.style.display = "none";
-    Reset.style.visibility = "visible";
-    document.getElementById('Graph').style.visibility = "visible";
-  });
-
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var head = parseInt(headInput.value);
-    
-    var chartData = generateChartData(head, queries);
-    renderChart(chartData);
-    calculateSeekTime();
-
-  });
-
-  function sendData(){
-    fetch("http://localhost:5500/", {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 
-          Request_ID: null, // since it's auto-increment, set to null
-          Queries: query,
-          Head_Position: head,
-          Total_Seek_Time: seekTime, 
-          Avg_Seek_Time: seekTime/queries.length
-       }),
-    }).then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
-
-  function generateChartData(head, queries) {
-    var chartData = {};
-    chartData.labels = ['Head'];
-    chartData.datasets = [{
-      label: 'Cylinder',
-      data: [head]
-    }];
-
-    for (var i = 0; i < queries.length; i++) {
-      chartData.labels.push('Request ' + (i + 1));
-      chartData.datasets[0].data.push(queries[i]);
-    }
-
-    return chartData;
-  }
-
-  function renderChart(chartData) {
-    if (chart) {
-      chart.destroy();
-    }
-
-    chart = new Chart(chartContainer, {
-      type: 'line',
-      data: chartData,
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-  }
-  function calculateSeekTime() {
-
-    // Calculate seek time
-    var head = headInput.value;
-    let seekTime = 0;
-    for (let i = 0; i < queries.length; i++) {
-      seekTime += Math.abs(queries[i] - head);
-      head = queries[i];
-    }
-
-    // Display result
-    document.getElementById("seektime").innerHTML = "<br><br><strong>Total seek time: </strong>" + seekTime + "<br>      <strong>Average seek time: </strong>" + (seekTime / queries.length);
-  }
-</script>
-
+        
+          <div class="container1">
+            <script>
+              function admSelectCheck(nameSelect)
+              {
+                  console.log(nameSelect);
+                  if(nameSelect){
+                      x3 = document.getElementById("o3").value;
+                      x4 = document.getElementById("o4").value;
+                      x5 = document.getElementById("o5").value;
+                      x6 = document.getElementById("o6").value;
+                      x7 = document.getElementById("o7").value;
+                      if(x3 == nameSelect.value || x4 == nameSelect.value || x5 == nameSelect.value || x6 == nameSelect.value || x7 == nameSelect.value){
+                          document.getElementById("admDivCheck").style.display = "block";
+                      }
+                      else{
+                          document.getElementById("admDivCheck").style.display = "none";
+                      }
+                  }
+                  else{
+                      document.getElementById("admDivCheck").style.display = "none";
+                  }
+              }
+              </script>
+            <div class="visualizer" style="">
+            <div class="error">Invalid Input</div>
+            <div class="container" style="margin-bottom: 10px;">
+          <!--   <div class="container" style=" background-color: rgb(224, 224, 224);border-radius: 5px; height: 1px; display: ;height: 6em"> -->
+              <form name="myForm">
+                <fieldset>
+                <div class="add-process">
+                <div class="input">
+                <div class="form-group" style="display:inline-table;margin-left: 5%;">
+                  <label for="bitstream-input" style="
+                  display: inline-table; 
+                  font-family: sans-serif;  
+                  margin: 5px;
+                  font-weight: 500; 
+                  font-size:17px">Sequence of Tracks:</label></div>
+                  <div class="form-group"  style="display:inline-table">
+                  <input style="
+                  display: inline-table; 
+                  font-family: sans-serif;"
+                  type="text"
+                  class="form-control"
+                  id="bitstream-input"
+                  name="bitstream"
+                  value="100 23 75 120 90 9"
+                  /></div>
+                  
+                  <label for="initial-input" style="
+                  display: inline-table;
+                  margin: 5px;
+                  font-weight: 500; 
+                  font-size:17px">Initial Cylinder</label>
+              <div class="form-group" style="display: inline-table;">
+                <input style="display:inline-table;"
+                type="number"
+                class="form-control"
+                id="initial-input"
+                name="initial-input"
+                value="50"/>
+            </div>
+            <div class="form-group"style="display:inline-block;">
+            <div id="plot-button" class="add-button" style="
+            padding-top: 12px;
+            padding-left: 25px;
+            display: inline-block;" 
+            onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value)">
+            &nbsp;SIMULATE&nbsp;</div></div>
+  
+            <div onclick="resetform()" class="add-button" style="
+            color: white;
+            padding-top: 12px;
+            padding-left: 25px;
+            display: inline-block;">RESET</div>
+            </fieldset>
+              </form>
+            <!-- <div id="cal-seek" style="padding-top: 0px;width: 100%; font-size:23px"></div> -->
+          <div id="grph" class="container"style="">
+            <div id="plt_alg_name" style=""></div>
+            <div id="graph_area" style="height: 400px; WIDTH:100%;"></div>            
+            <div id="cal-seek" style="width: 100%; font-size:23px"></div><br><br>
+          </div>
+    </div> </div>       
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="fcfs.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </body>
 </html>
+<div>
