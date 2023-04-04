@@ -9,7 +9,7 @@ function runOptimalPageReplacement() {
     let faults = 0;
     let hits = 0;
     let nextUse = new Array(numFrames).fill(-1);
-    let tableData = "<tr><th>Reference</th>";
+    let tableData = "<tr class=\"text-light bg-dark\"><th >Reference</th>";
     for (let i = 0; i < numFrames; i++) {
         tableData += "<th>Frame " + i + "</th>";
     }
@@ -39,9 +39,9 @@ function runOptimalPageReplacement() {
             }
         }
         if (!found) {
-            tableData += "<td id=\"fault\";>FAULT</td></tr>";
+            tableData += "<td class=\"text-light bg-danger \" id=\"fault\";>FAULT</td></tr>";
         } else {
-            tableData += "<td id=\"hit\">HIT</td></tr>";
+            tableData += "<td class=\"text-light bg-success \" id=\"hit\">HIT</td></tr>";
         }
     }
     document.getElementById("outputTable").innerHTML = tableData;
@@ -91,4 +91,7 @@ function findOptimal(frames, nextUse, numFrames, pages, currentIndex, numPages) 
         }
     }
     return index;
+}
+function resetform() {
+  window.location.reload();
 }
