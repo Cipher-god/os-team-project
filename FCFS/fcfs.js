@@ -1,288 +1,188 @@
-let menu_open = false;
-let menu_button = document.querySelector(".nav>div>.button>div");
+$(function () {
+  $("#navbarToggle").blur(function (event) {
+    var screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      $("#collapsable-nav").collapse("hide");
+    }
+  });
 
-menu_button.addEventListener("click", open_menu);
-menu_button.addEventListener("mouseover", hoverin_button);
-menu_button.addEventListener("mouseout", hoverout_button);
+  $("#navbarToggle").click(function (event) {
+    $(event.target).focus();
+  });
+});
 
-function hoverin_button(e) {
-  let button_before = document.querySelector(".nav>div>.button>div>div");
-  button_before.style.animation = "hover-on";
-  button_before.style.animationDuration = "300ms";
-  button_before.style.animationFillMode = "forwards";
-
-  menu_button.style.animation = "forward-text";
-  menu_button.style.animationDuration = "300ms";
-  menu_button.style.animationFillMode = "forwards";
-}
-
-function hoverout_button(e) {
-  if (menu_open == false) {
-    let button_before = document.querySelector(".nav>div>.button>div>div");
-    button_before.style.animation = "hover-out";
-    button_before.style.animationDuration = "300ms";
-    button_before.style.animationFillMode = "forwards";
-
-    menu_button.style.animation = "reverse-text";
-    menu_button.style.animationDuration = "300ms";
-    menu_button.style.animationFillMode = "forwards";
+$("#animate-button").click(function () {
+  btn1.disabled = true;
+  var b = document.forms["myForm"]["bitstream-input"].value;
+  var i = document.forms["myForm"]["initial-input"].value;
+  if (b == "") {
+    alert("Enter the Sequence of Request queue!");
+    return false;
   }
-}
-
-function open_menu(e) {
-  let menu = document.querySelector(".menu");
-  let menu_item = document.querySelector(".menu>.menu-item");
-  if (menu_open == false) {
-    menu_open = true;
-    menu.style.animation = "slide-out";
-    menu.style.animationDuration = "500ms";
-    menu.style.animationFillMode = "forwards";
-
-    menu_item.style.animation = "reverse-menu";
-    menu_item.style.animationDuration = "700ms";
-    menu_item.style.animationFillMode = "forwards";
-  } else {
-    menu_open = false;
-    menu.style.animation = "slide-in";
-    menu.style.animationDuration = "500ms";
-    menu.style.animationFillMode = "forwards";
-
-    menu_item.style.animation = "forward-menu";
-    menu_item.style.animationDuration = "200ms";
-    menu_item.style.animationFillMode = "forwards";
+  if (b != "" && i == "") {
+    alert("Enter the value of Initial Cylinder!");
+    return false;
   }
-}
 
-// ---------------------------------------------------------------------
+  var ini = parseInt(document.getElementById("initial-input").value);
+  var str = document.getElementById("bitstream-input").value;
 
-let add_button = document.querySelector(
-  ".container>div:last-child>.add-process>.add"
-);
-let table = document.querySelector(".table>table");
-let play_button = document.querySelector(
-  ".container>div:first-child>.buttons>.play"
-);
-let reset_button = document.querySelector(
-  ".container>div:first-child>.buttons>.reset"
-);
+  var inp = [],
+    r2 = str.split(" "),
+    r3;
+  for (a1 = 0; a1 < r2.length; ++a1) {
+    if (r2[a1] == "") {
+      continue;
+    }
+    r3 = parseInt(r2[a1]);
+    inp.push(r3);
+  }
 
-add_button.addEventListener("click", add_process);
-table.addEventListener("click", delete_process);
-play_button.addEventListener("click", run_algorithm);
-reset_button.addEventListener("click", reset_table);
-
-function add_process(e) {
-  let arrivalTime = parseFloat(document.getElementById("arrival-time").value, 10);
-  let burstTime = parseFloat(document.getElementById("brust-time").value, 10);
-  let tableBody = document.querySelector(".table>table>tbody");
+  ini = parseInt(ini);
 
   if (
-    Number.isFloat(arrivalTime) &&
-    Number.isFloat(burstTime) &&
-    burstTime > 0 &&
-    arrivalTime >= 0
+    $("div.left").hasClass("transform") &&
+    window.matchMedia("(min-width: 1249px)").matches
   ) {
-    document.querySelector(".error").style.display = "none";
-    tableBody.innerHTML += `<tr>
-        <td></td>
-        <td>${arrivalTime}</td>
-        <td>${burstTime}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="del">DEL</td>
-      </tr>`;
+    $(".left").css("width", "30%");
+    $(".left").css("margin", "30px");
+    $("#plot-button").css("margin-left", "30px");
+    $("#plot-button").css("margin-bottom", "5%");
+    $(".container2").css("top", "800px");
+    $(".container3").css("top", "1500px");
 
-    document.getElementById("arrival-time").value = "";
-    document.getElementById("brust-time").value = "";
-
-    for (let i = 0; i < table.rows.length; i++) {
-      document.querySelector(
-        `.table>table>tbody>tr:nth-child(${i + 1})>td:nth-child(1)`
-      ).innerHTML = "P" + (i + 1);
-    }
-  } else {
-    document.querySelector(".error").style.display = "block";
+    setTimeout(function () {
+      document.getElementById("canvas").style.visibility = "visible";
+      myalgorithm(document.getElementById("algorithm").value, inp, ini);
+    }, 500);
   }
+});
+/***** GRAPH STARTS *****/
+var pre, v1, v2, v3, v4, v5, v6;
+
+function fcfs(inp, ini) {
+  var x1 = [];
+  var y1 = [];
+  var seek = 0;
+  var visited = [];
+  var a1, a2;
+  for (a1 = 0; a1 < inp.length; ++a1) {
+    visited[a1] = 0;
+  }
+
+  x1.push(ini);
+  y1.push(0);
+  var hold = ini;
+  for (a1 = 0; a1 < inp.length; ++a1) {
+    seek = seek + Math.abs(hold - inp[a1]);
+    visited[a1] = 1;
+    hold = inp[a1];
+    x1.push(inp[a1]);
+    y1.push(1 * a1);
+  }
+
+  var trace1 = {
+    x: x1,
+    y: y1,
+    type: "scatter",
+  };
+
+  var data = [trace1];
+  v2 = seek;
+
+  return [data, seek];
+}
+/***** GRAPH ENDS *****/
+/***** ALGO STARTS *****/
+// getting the user input from the user, function
+function getBitStreamAndPlot(event, r1, ini, alg) {
+  var b = document.forms["myForm"]["bitstream-input"].value;
+  var i = document.forms["myForm"]["initial-input"].value;
+  if (b == "") {
+    alert("Enter the Sequence of Request queue!");
+    return false;
+  }
+  if (b != "" && i == "") {
+alert("Enter the value of Initial Cylinder!");
+return false;
 }
 
-function delete_process(e) {
-  if (!e.target.classList.contains("del")) {
-    return;
-  }
-  let deleteButton = e.target;
-  deleteButton.closest("tr").remove();
-
-  for (let i = 0; i < table.rows.length; i++) {
-    document.querySelector(
-      `.table>table>tbody>tr:nth-child(${i + 1})>td:nth-child(1)`
-    ).innerHTML = "P" + (i + 1);
-  }
+var inp = [],
+r2 = b.split(" "),
+r3;
+for (a1 = 0; a1 < r2.length; ++a1) {
+if (r2[a1] == "") {
+continue;
+}
+r3 = parseInt(r2[a1]);
+inp.push(r3);
 }
 
-function reset_table(e) {
-  location.reload();
+ini = parseInt(i);
+
+if ( $("div.left").hasClass("transform") &&
+window.matchMedia("(min-width: 1249px)").matches) {
+$(".left").css("width", "30%");
+$(".left").css("margin", "30px");
+$("#plot-button").css("margin-left", "30px");
+$("#plot-button").css("margin-bottom", "5%");
+$(".container2").css("top", "800px");
+$(".container3").css("top", "1500px");
+setTimeout(function () {
+  document.getElementById("canvas").style.visibility = "visible";
+  myalgorithm(alg, inp, ini);
+}, 500);
+}
 }
 
-var processArr = [];
-var rowLength;
-var pid;
-var data = {
-  header: ["processId", "TAT"],
-  rows: [],
+// implementation of algorithms
+function myalgorithm(alg, inp, ini) {
+var out = [];
+
+// calling algorithms and storing the output in out array
+if (alg == "fcfs") {
+out = fcfs(inp, ini);
+} else {
+alert("Select an Algorithm First!");
+return false;
+}
+
+// displaying the graph
+var layout = {
+title: alg.toUpperCase() + " Disk Scheduling Algorithm",
+xaxis: {
+title: "Cylinder Number",
+zeroline: false,
+showline: true,
+range: [1, Math.max(...inp)],
+},
+yaxis: {
+title: "Request Order",
+zeroline: false,
+showline: true,
+},
+height: 500,
+width: 800,
 };
-
-function run_algorithm(e) {
-  //processArr = [];
-  let times = ["st", "ct", "rt", "wt", "tat"];
-  rowLength = table.rows.length;
-
-  for (let i = 1; i < rowLength; i++) {
-    processArr.push({
-      at: parseFloat(table.rows.item(i).cells.item(1).innerHTML, 10),
-      bt: parseFloat(table.rows.item(i).cells.item(2).innerHTML, 10),
-      pid: "P" + i,
-    });
-  }
-
-  processArr = calculateAllTimes(processArr);
-  let avgTAT = 0,
-    avgWT = 0,
-    avgRT = 0;
-
-  for (let i = 0; i < processArr.length; i++) {
-    avgTAT += processArr[i].tat;
-    avgWT += processArr[i].wt;
-    avgRT += processArr[i].rt;
-    for (let j = 0; j < 5; j++) {
-      document.querySelector(
-        `.table>table>tbody>tr:nth-child(${i + 1})>td:nth-child(${j + 4})`
-      ).innerHTML = processArr[i][times[j]];
+if (pre) {
+    Plotly.newPlot("graph_area", data, layout);
+    var val = data[0].x;
+    var tot_seek = "Seek-Time: ";
+    for (var i = 1; i < val.length; i++) {
+      tot_seek =
+        tot_seek +
+        " | " +
+        val[i].toString() +
+        " - " +
+        val[i - 1].toString() +
+        " | ";
+      if (i < val.length - 1) tot_seek = tot_seek + " + ";
     }
+    document.getElementById("graph_area").style.visibility = "visible";
   }
-
-  document.querySelector(".container>div:first-child>.avg-tat>span").innerHTML =
-    (avgTAT / processArr.length).toFixed(2) == "NaN"
-      ? 0
-      : (avgTAT / processArr.length).toFixed(2);
-  document.querySelector(".container>div:first-child>.avg-wt>span").innerHTML =
-    (avgWT / processArr.length).toFixed(2) == "NaN"
-      ? 0
-      : (avgWT / processArr.length).toFixed(2);
-  document.querySelector(".container>div:first-child>.avg-rt>span").innerHTML =
-    (avgRT / processArr.length).toFixed(2) == "NaN"
-      ? 0
-      : (avgRT / processArr.length).toFixed(2);
-  processArr.sort(function (a, b) {
-    var keyA = a.ct,
-      keyB = b.ct;
-    // Compare the 2 dates
-    if (keyA < keyB) return -1;
-    if (keyA > keyB) return 1;
-    return 0;
-      });
-  tableCreate();
-  console.log(processArr);
-  processArr.forEach((a, index) => {
-    data.rows[index] = [a.pid, a.tat];
-  });
-
-  anychart.onDocumentReady(function () {
-    // anychart.theme(anychart.themes.darkEarth);
-
-    // set a data from process array for tat chart
-
-    console.log(data);
-    // create the chart
-    var chart = anychart.bar();
-
-    // add data
-    chart.data(data);
-
-    // set the chart title
-    chart.title("process TAT comparison");
-
-    // draw
-    chart.container("container");
-    chart.draw();
-  });
 }
-
-function calculateAllTimes(arr) {
-  let time = 0;
-  while (arr.find((el) => el.finish == undefined)) {
-    let minAT = Infinity;
-    let process = {};
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].at < minAT && arr[i].finish != true) {
-        minAT = arr[i].at;
-        process = arr[i];
-      }
-    }
-    if (time == 0 || time < minAT) {
-      time = minAT;
-    }
-    process.st = time;
-    process.finish = true;
-    time += process.bt;
-    process.ct = time;
-    process.rt = process.st - process.at;
-    process.tat = process.ct - process.at;
-    process.wt = process.tat - process.bt;
-  }
-  return arr;
-}
-
-var row1 = document.getElementById("row1");
-var row = document.getElementById("row");
-
-function tableCreate() {
-  var z = row1.insertCell(0);
-  var w = row2.insertCell(0);
-  z.id = "cell1";
-  w.id = "cell2";
-  document.getElementById("cell1").style.width = "80px";
-  document.getElementById("cell2").style.width = "80px";
-  z.innerHTML = "Start Time";
-  w.innerHTML = processArr[0].st;
-  document.getElementById("cell1").style.border = "none";
-  document.getElementById("cell2").style.border = "none";
-  document.getElementById("cell1").style.background = "#e0e0e0";
-  document.getElementById("cell2").style.background = "#e0e0e0";
-  document.getElementById("cell1").style.textAlign = "center";
-  document.getElementById("cell2").style.textAlign = "center";
-  var colors = [
-    "#58508d",
-    "#bc5090",
-    "#ff6361",
-    "#ffa600",
-    "#fc979e",
-    "#a8f796",
-    "#b0f287",
-    "#f49381",
-    "#b2ffda",
-  ];
-  for (let i = 0; i < rowLength - 1; i++) {
-    var f = i % 9;
-    var x = row1.insertCell(i + 1);
-    var y = row2.insertCell(i + 1);
-    x.id = "c" + i;
-    y.id = "cc" + i;
-    x.innerHTML = processArr[i].pid;
-    y.innerHTML = processArr[i].ct;
-    document.getElementById("c" + i).style.width = "50px";
-    document.getElementById("cc" + i).style.width = "50px";
-    document.getElementById("c" + i).style.height = "35px";
-    document.getElementById("cc" + i).style.height = "35px";
-    document.getElementById("am").style.margin = "20px";
-    document.getElementById("am").style.padding = "20px";
-    document.getElementById("c" + i).style.backgroundColor = colors[f];
-    document.getElementById("cc" + i).style.backgroundColor = colors[f];
-    document.getElementById("c" + i).style.textAlign = "center";
-    document.getElementById("cc" + i).style.textAlign = "center";
-    document.getElementById("c" + i).style.border = "none";
-    document.getElementById("cc" + i).style.border = "none";
-  }
+/***** ALGO ENDS *****/
+//reset page function
+function resetform() {
+  window.location.reload();
 }
