@@ -139,27 +139,23 @@
             <div>Basic Theory :</div>
             <div></div>
             <div>
-              &emsp;&emsp;First Come First Serve (FCFS) is an operating system
-              scheduling algorithm that automatically executes queued requests
-              and processes in order of their arrival.
-              <br />
-              &emsp;&emsp;It is non-preemptive algorithm. It is the easiest and
-              simplest CPU scheduling algorithm. In this type of algorithm,
-              processes which requests the CPU first get the CPU allocation
-              first. This is managed with a FIFO queue. As the process enters
-              the ready queue, its PCB (Process Control Block) is linked with
-              the tail of the queue and, when the CPU becomes free, it should be
-              assigned to the process at the beginning of the queue. FCFS also
-              suffers from starvation which arise if the first process has
-              larger burst time.
+Disk Scheduling Algorithm is an algorithm that keeps and manages input and output requests arriving for the disk in a system. 
+As we know, for executing any process memory is required.
+And when it comes to accessing things from a hard disk, 
+the process becomes very slow as a hard disk is the slowest part of our computer. 
+There are various methods by which the process can be scheduled and can be done efficiently.
+<br>
+FCFS stands for 'first-come-first-serve'. As the name suggests, the request which comes first will be processed first and so on.
+The requests coming to the disk are arranged in a proper sequence as they arrive. 
+Since every request is processed in this algorithm, so there is no chance of 'starvation'.
+
             </div>
           </div>
           <div class="theory-step">
             <ul>
               <label>STEP 1 :</label>
               <li>
-                Input the number of processes required to be scheduled using
-                FCFS, burst time for each process and its arrival time.
+             Initialise a queue to hold the disk requests.
               </li>
               <label>STEP 2 :</label>
               <li>
@@ -169,10 +165,23 @@
               </li>
               <label>STEP 3 :</label>
               <li>
-                Calculate the Finish Time, Turn Around Time and Waiting Time for
-                each process which in turn help to calculate Average Waiting
-                Time and Average Turn Around Time required by CPU to schedule
-                given set of process using FCFS.
+                Add all the disk requests to the queue in the order in which they arrive.
+              </li>
+              <label>STEP 4 :</label>
+              <li>
+                For each request in the queue, calculate the distance between the current head position and the position of the request.
+              </li>
+              <label>STEP 5 :</label>
+              <li>
+                Move the disk head to the position of the request and process the request.
+              </li>
+              <label>STEP 6 :</label>
+              <li>
+                Calculate the total head movement by adding up the distance between each request.
+              </li>
+              <label>STEP 7 :</label>
+              <li>
+                Return the total head movement.
               </li>
             </ul>
           </div>
